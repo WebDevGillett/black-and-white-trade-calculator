@@ -44,7 +44,7 @@ function updateText() {
 }
 
 function deleteUnwantedData(array) {
-    const desiredProperties = ["name", "image", "value", "itemImage", "title", "value"];
+    const desiredProperties = ["name", "imageLink", "value", "itemImage", "title", "value"];
     return array.map((obj) => {
         const newObj = {};
         Object.keys(obj).forEach((key) => {
@@ -95,7 +95,7 @@ function addItem(index) {
 
     const backgroundImageDiv = document.createElement("div");
     backgroundImageDiv.classList.add("background-image");
-    backgroundImageDiv.style.backgroundImage = `url(${datasave[index].image})`;
+    backgroundImageDiv.style.backgroundImage = `url(${datasave[index].imageLink})`;
     itemDiv.appendChild(backgroundImageDiv);
 
     if (selectedsave == 1) {
@@ -123,7 +123,7 @@ function addGridItems(data) {
             `
         <div onclick="addItem(${index})" class="grid-item">
         <h1>${data.title}</h1>
-        <div style="background-image: url(${data.image})" class="background-image"></div>
+        <div style="background-image: url(${data.imageLink})" class="background-image"></div>
         </div>
         `; 
       } else {
